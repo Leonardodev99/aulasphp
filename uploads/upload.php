@@ -3,6 +3,9 @@
 $photo = $_FILES['imagem'];
 $path = 'imgs/';
 
+if (!is_dir($path)) {
+    mkdir($path, 0777, true); // Cria o diretório com permissões
+}
 /
 
 if(move_uploaded_file($photo['tmp_name'], $path . $photo['name'])) {
